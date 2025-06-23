@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom"; // <-- import Link
 
@@ -21,7 +21,8 @@ const Login = () => {
         user: res.data.user,
       };
       const isAdmin = userData.user.isAdmin;
-      console.log(isAdmin);
+      setFormData(null);
+
       // Store under 'userData' key (not 'token')
       localStorage.setItem("userData", JSON.stringify(userData));
       alert("Login successful!");
